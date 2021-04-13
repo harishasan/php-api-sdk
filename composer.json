@@ -1,0 +1,45 @@
+{
+    "name": "apimatic/mdnotesccg",
+    "description": "",
+    "type": "library",
+    "keywords": [
+        "MdNotesCCG",
+        "API",
+        "SDK"
+    ],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "",
+            "email": "",
+            "homepage": "",
+            "role": "API Tool"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "apimatic/unirest-php": "^2.0",
+        "apimatic/jsonmapper": "^2.0.2"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "phan/phan": "^3.0",
+        "phpunit/phpunit": "^7.5 || ^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MdNotesCCGLib\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html=coverage",
+        "lint": "phpcs --standard=phpcs-ruleset.xml src/",
+        "lint-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
+        "analyze": "phan --allow-polyfill-parser"
+    }
+}
