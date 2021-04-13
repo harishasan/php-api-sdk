@@ -1,10 +1,12 @@
 
-A bit about the code: this code is a SDK, written in PHP. This SDK is a wrapper over an API. API spec is provided along with the code. The SDK allows the developer to natively call api methods instead of relying on some HTTP client. Behind the scenes, this SDK is calling HTTP client to make the API calls.
-Some of the major features provided by the SDK are (apart from wrapping the api calls)
+### About the code
+Repo represents a SDK written in PHP. This SDK is a wrapper over an API. API spec (`api-spec-OpenApi3.yaml`) is provided along with the code. The SDK allows the developer to natively consume the APIs in PHP. This means developer do not have to do things like setting up HTTP client libraries, defining model classes, authentication, timeouts, etc, from scratch. Behind the scenes, this SDK is utilizing a HTTP client to make the API calls.
+Some of the major features provided by the SDK (apart from wrapping the api calls) are
 - Authentication (Client Credentials Grant)
 - Wrapping the Requests and Response Models
 - Classes for Exceptions to be thrown by endpoints
-- Unit Tests for all the api calls
+- Unit Tests for all the API calls
+
 What we are looking for
 1. A code and design review of the SDK
 2. Since PHP8 has introduced many new features, how can we utilize those in our code to make it better?
