@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: MdNotesCCG
+  description: API for Markdown Notes app.
+  contact: {}
+  version: '1.0'
+servers:
+- url: http://localhost:3000/oauth2/non-auth-server
+  variables: {}
+- url: http://localhost:3000/oauth2/auth-server
+  variables: {}
+paths:
+  /user:
+    get:
+      tags:
+      - User
+      summary: get user
+      operationId: getuser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      deprecated: false
+  /status:
+    get:
+      tags:
+      - Service
+      summary: get status
+      operationId: getstatus
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceStatus'
+      deprecated: false
+components:
+  schemas:
+    Note:
+      title: Note
+      required:
+      - id
+      - title
+      - body
+      - user_id
+      - created_at
+      - updated_at
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        body:
+          type: string
+        user_id:
+          type: integer
+          format: int64
+        created_at:
+          type: string
+        updated_at:
+          type: string
+    User:
+      title: User
+      required:
+      - id
+      - name
+      - email
+      - created_at
+      - updated_at
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+    ServiceStatus:
+      title: ServiceStatus
+      required:
+      - app
+      - moto
+      - notes
+      - users
+      - time
+      - os
+      - php_version
+      - status
+      type: object
+      properties:
+        app:
+          type: string
+        moto:
+          type: string
+        notes:
+          type: integer
+          format: int32
+        users:
+          type: integer
+          format: int32
+        time:
+          type: string
+        os:
+          type: string
+        php_version:
+          type: string
+        status:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: http://localhost:3000/oauth2/auth-server/request_token
+          scopes: {}
+security:
+- oauth2: []
+tags:
+- name: User
+  description: ''
+- name: Service
+  description: ''
